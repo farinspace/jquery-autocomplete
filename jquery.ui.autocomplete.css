@@ -8,6 +8,7 @@ ul.jq-ui-autocomplete {
     list-style: none;
     font: normal .75em/.75em Verdana, Arial, sans-serif;
     color: #333;
+    cursor:pointer;
 }
 ul.jq-ui-autocomplete li { 
   display: block; 
