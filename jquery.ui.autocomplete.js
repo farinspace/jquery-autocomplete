@@ -53,7 +53,7 @@
 			 */
 			threshold: 100,
 			/**
-			 * By default the with of the input box is used for the autocomplete
+			 * By default the width of the input box is used for the autocomplete
 			 * suggestions. If you want to change that, specify here a width in pixels.
 			 */
 			adjustWidth: true,
@@ -182,13 +182,19 @@
        */
       displayList: function(input, container) {
         var offset = input.offset();
+        var inputWidth = input.outerWidth();
         container
           .css({
             top: offset.top + input.outerHeight(),
             left: offset.left,
-            width: this.adjustWidth?input.width():undefined
+            width: this.adjustWidth?inputWidth:undefined
           })
           .appendTo("body");
+		if (this.adjustWidth) {
+            var containerWidth = container.outerWidth();
+            var borderDiff = containerWidth - inputWidth;
+            container.width(inputWidth - borderDiff);
+		}
         return container;
       },
       /**
