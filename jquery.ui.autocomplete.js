@@ -190,11 +190,18 @@
             width: this.adjustWidth?inputWidth:undefined
           })
           .appendTo("body");
-		if (this.adjustWidth) {
+        if (this.adjustWidth) {
             var containerWidth = container.outerWidth();
             var borderDiff = containerWidth - inputWidth;
             container.width(inputWidth - borderDiff);
-		}
+        }
+        var childrenHeight = 0;
+        $.each(container.children(), function() {
+            childrenHeight += $(this).outerHeight();
+        });
+        if (container.outerHeight() > childrenHeight) {
+            container.css('height', 'auto');
+        }
         return container;
       },
       /**
