@@ -302,7 +302,7 @@
 		$("body").one("cancel.autocomplete", function() {
 			input.triggerHandler("cancelled.autocomplete");
 			$("body").triggerHandler("off.autocomplete");
-			input.val(original);
+			//input.val(original);
 		});
 
 		$("body").bind("activate.autocomplete", function(e) {
